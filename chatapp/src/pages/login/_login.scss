@@ -1,0 +1,22 @@
+@use "../../styles/mixins" as *;
+
+.login-page {
+	@include form-box;
+}
+
+.login-title {
+	@include page-title;
+}
+
+.login-form {
+	margin-top: 10vh;
+}
+
+.login-submit {
+	margin-top: 5vh;
+	background-color: #f8f9fa;
+}
+
+.form-label {
+	@include form-label;
+}
