@@ -1,0 +1,21 @@
+@use "../../styles/mixins" as *;
+
+.register-page {
+	@include form-box;
+}
+
+.register-title {
+	@include page-title;
+}
+
+.register-form {
+	margin-top: 10vh;
+}
+
+.register-submit {
+	margin-top: 5vh;
+}
+
+.form-label {
+	@include form-label;
+}
