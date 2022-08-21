@@ -1,5 +1,6 @@
 import TopNav from "./components/navbar/TopNav";
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./styles/_app.scss";
 
@@ -13,6 +14,7 @@ const App = () => {
 				<Router>
 					<Routes>
 						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
 					</Routes>
 				</Router>
 			</main>
