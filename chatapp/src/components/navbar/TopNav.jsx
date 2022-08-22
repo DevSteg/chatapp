@@ -7,11 +7,11 @@ const TopNav = () => {
 		<>
 			<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 				<Container>
-					<Navbar.Brand href="/home">ChatApp</Navbar.Brand>
+					<Navbar.Brand href="/">ChatApp</Navbar.Brand>
 					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 					<Navbar.Collapse id="responsive-navbar-nav">
 						<Nav className="me-auto">
-							<Nav.Link href="/home">Home</Nav.Link>
+							<Nav.Link href="/">Home</Nav.Link>
 						</Nav>
 						<Nav>
 							<Nav.Link href="/login">Login</Nav.Link>

@@ -1,0 +1,22 @@
+@use "../../styles/mixins" as *;
+
+.landing-section {
+	z-index: 5;
+	@include form-box;
+}
+
+.landing-title {
+	@include page-title;
+}
+
+.cta {
+	display: flex;
+	justify-content: space-between;
+}
+
+.login-cta,
+.register-cta {
+	color: #f8f9fa;
+	margin-top: 20vh;
+	text-align: center;
+}
