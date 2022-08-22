@@ -11,6 +11,7 @@ const App = () => {
 				<TopNav />
 			</header>
 			<main className="app-main">
+				<div className="layer"></div>
 				<Router>
 					<Routes>
 						<Route path="/login" element={<Login />} />
