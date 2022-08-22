@@ -16,11 +16,21 @@ const LoginForm = () => {
 						<Form.Label className="form-label">Password</Form.Label>
 						<Form.Control type="password" placeholder="Enter Password" />
 					</Form.Group>
-					<Button className="login-submit" variant="light" type="submit">
+					<Button
+						className="login-submit"
+						variant="light"
+						type="submit"
+						size="lg"
+					>
 						Login
 					</Button>
 				</Container>
 			</Form>
+			<div className="register-tag">
+				<h6>
+					Don't have an account yet? Sign up <a href="/register">here!</a>
+				</h6>
+			</div>
 		</>
 	);
 };

@@ -26,11 +26,21 @@ const RegisterForm = () => {
 						<Form.Label className="form-label">Re-enter Password</Form.Label>
 						<Form.Control type="password" placeholder="Re-enter Password" />
 					</Form.Group>
-					<Button variant="light" type="submit" className="register-submit">
+					<Button
+						variant="light"
+						type="submit"
+						className="register-submit"
+						size="lg"
+					>
 						Sign Up
 					</Button>
 				</Container>
 			</Form>
+			<div className="login-tag">
+				<h6>
+					Already have an account? Login <a href="/login">here!</a>
+				</h6>
+			</div>
 		</>
 	);
 };
