@@ -1,0 +1,67 @@
+@use "../../styles/mixins" as *;
+
+.home-page {
+	display: flex;
+	justify-content: space-between;
+	height: 80vh;
+	width: 90vw;
+}
+
+.chat-box {
+	@include form-box;
+	height: 100%;
+	padding: 30px;
+}
+
+.username {
+	background-color: #f8f9fa;
+	padding: 10px 20px;
+	font-size: 1.8rem;
+	border-radius: 20px;
+	text-align: end;
+}
+
+.chat-area {
+	background-color: #f8f9fa;
+	height: 70%;
+	border-radius: 20px;
+}
+
+.home-aside {
+	z-index: 10;
+}
+
+.aside-box-title {
+	color: #f8f9fa;
+	margin-left: 20px;
+}
+
+.friends-box {
+	@include form-box;
+	width: 400px;
+	height: 45%;
+	padding: 5px 10px 20px 10px;
+}
+
+.online-box {
+	@include form-box;
+	margin-top: 10px;
+	width: 400px;
+	height: 45%;
+	padding: 5px 10px 20px 10px;
+}
+
+.friends-list,
+.online-list {
+	background-color: #f8f9fa;
+	height: 90%;
+	width: 100%;
+	border-radius: 20px;
+}
+
+.friend {
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 10px 5px 5px;
+}

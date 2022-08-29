@@ -2,6 +2,7 @@ import TopNav from "./components/navbar/TopNav";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Landing from "./pages/landing/Landing";
+import Home from "./pages/home/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./styles/_app.scss";
 
@@ -16,6 +17,7 @@ const App = () => {
 				<Router>
 					<Routes>
 						<Route path="/" element={<Landing />} />
+						<Route path="/home" element={<Home />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
 					</Routes>
