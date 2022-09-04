@@ -7,6 +7,10 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			default: () => v4().replace(/\-/g, ""),
 		},
+		username: {
+			type: String,
+			required: [true, "Please Add a username"],
+		},
 		firstName: {
 			type: String,
 			required: [true, "Please Add a first Name"],
