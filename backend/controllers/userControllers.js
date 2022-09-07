@@ -63,11 +63,18 @@ const createUser = asyncHandler(async (req, res) => {
 
 		const { username, firstName, secondName, email, password } = req.body;
 
-		// Check the user email already exists and throw error
-		const checkUser = await User.findOne({ email });
-		if (checkUser) {
+		// Check if the users email already exists and throw error
+		const checkUserEmail = await User.findOne({ email });
+		if (checkUserEmail) {
 			res.status(400);
-			throw new Error("User already exists");
+			throw new Error("Email already exists");
+		}
+
+		// Check if the username already exists and throw error
+		const checkUsername = await User.findOne({ username });
+		if (checkUsername) {
+			res.status(400);
+			throw new Error("Username already exists");
 		}
 
 		// Hash Password
@@ -92,7 +99,7 @@ const createUser = asyncHandler(async (req, res) => {
 		});
 	} catch (error) {
 		res.status(401);
-		throw new Error("Invalid User data");
+		throw new Error(error);
 	}
 });
 
