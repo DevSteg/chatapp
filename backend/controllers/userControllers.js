@@ -9,15 +9,12 @@ import makeValidation from "@withvoid/make-validation";
 
 const getUserById = asyncHandler(async (req, res) => {
 	try {
-		const { _id, username, firstName, secondName, email } = await User.findById(
-			{
-				_id: req.params.id,
-			}
-		);
+		const { username, firstName, secondName, email } = await User.findById({
+			_id: req.userId,
+		});
 
 		res.status(200).json({
 			success: true,
-			id: _id,
 			username: username,
 			firstName: firstName,
 			secondName: secondName,
@@ -110,7 +107,7 @@ const createUser = asyncHandler(async (req, res) => {
 const updateUser = asyncHandler(async (req, res) => {
 	try {
 		// Find user by id and update
-		const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+		const updatedUser = await User.findByIdAndUpdate(req.userId, req.body, {
 			new: true,
 		});
 		res.status(200).json({ success: true }, updatedUser);
@@ -127,7 +124,7 @@ const updateUser = asyncHandler(async (req, res) => {
 const deleteUser = asyncHandler(async (req, res) => {
 	try {
 		// Find and delete user by id
-		await User.findByIdAndDelete(req.params.id);
+		await User.findByIdAndDelete(req.userId);
 		res.status(200).json({ Success: true });
 	} catch (error) {
 		res.status(400).json({ success: false });
