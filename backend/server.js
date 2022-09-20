@@ -5,6 +5,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import dotenv from "dotenv";
 import userRouter from "./routes/userRoutes.js";
+import authRouter from "./routes/authRoutes.js";
 
 dotenv.config(); // Config dotenv
 connectDB(); // Connect to database
@@ -13,12 +14,14 @@ const app = express();
 const port = process.env.PORT || "3000";
 
 app.set("port", port);
+app.use(cors());
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/users", userRouter); // User API route
+app.use("/auth", authRouter); // Auth API route
 
 // catch 404 and forward to error handler
 app.use("*", (req, res) => {
