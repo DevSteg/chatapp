@@ -1,0 +1,27 @@
+@use "../../styles/mixins" as *;
+
+.profile-section {
+	z-index: 5;
+	@include form-box;
+}
+
+.greeting {
+	@include page-title;
+}
+
+.profile-form {
+	width: 80%;
+	margin: auto;
+}
+
+.greeting,
+.profile-input {
+	text-transform: capitalize;
+}
+
+.profile-update-btn {
+	margin-top: 20px;
+	width: 150px;
+	float: right;
+	margin-right: 50px;
+}
