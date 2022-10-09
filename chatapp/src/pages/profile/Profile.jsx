@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/context";
 import { getUserRequest } from "../../api/getUserRequest";
 import ProfileForm from "../../components/profileForm/ProfileForm";
 import "./_profile.scss";
+import { updateUserRequest } from "../../api/updateUserRequest";
 
 const Profile = () => {
 	const [userData, setUserData] = useState({
@@ -30,11 +31,23 @@ const Profile = () => {
 			[name]: value,
 		});
 	};
+
+	const handleOnSubmit = (e) => {
+		e.preventDefault();
+
+		updateUserRequest(userData, token);
+
+		location.reload();
+	};
 	return (
 		<section className="profile-section">
 			{!token && <Navigate to="/login" />}
 			<h3 className="greeting">Welcome {userData.username}</h3>
-			<ProfileForm userData={userData} handleOnChange={handleOnChange} />
+			<ProfileForm
+				userData={userData}
+				handleOnChange={handleOnChange}
+				handleOnSubmit={handleOnSubmit}
+			/>
 		</section>
 	);
 };

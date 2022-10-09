@@ -1,11 +1,12 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
+import { logout } from "../../api/logout";
 
-const ProfileForm = ({ userData, handleOnChange }) => {
+const ProfileForm = ({ userData, handleOnChange, handleOnSubmit }) => {
 	return (
 		<>
-			<Form className="profile-form">
+			<Form className="profile-form" onSubmit={handleOnSubmit}>
 				<Container>
 					<Form.Group controlId="profile-username">
 						<Form.Label className="profile-label">Username</Form.Label>
@@ -15,6 +16,7 @@ const ProfileForm = ({ userData, handleOnChange }) => {
 							className="profile-input"
 							value={userData.username}
 							onChange={handleOnChange}
+							required
 						/>
 					</Form.Group>
 					<Form.Group controlId="profile-first-name">
@@ -45,11 +47,21 @@ const ProfileForm = ({ userData, handleOnChange }) => {
 							className="profile-input-email"
 							value={userData.email}
 							onChange={handleOnChange}
+							required
 						/>
 						<Form.Text>
 							We'll never share your email with anyone else.
 						</Form.Text>
 					</Form.Group>
+					<Button
+						variant="danger"
+						type="button"
+						className="logout-btn"
+						size="sm"
+						onClick={logout}
+					>
+						Logout
+					</Button>
 					<Button
 						variant="light"
 						type="submit"
