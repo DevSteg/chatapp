@@ -110,15 +110,15 @@ const updateUser = asyncHandler(async (req, res) => {
 		const updatedUser = await User.findByIdAndUpdate(req.userId, req.body, {
 			new: true,
 		});
-		res.status(200).json({ success: true }, updatedUser);
+		res.status(200).json({ success: true, updatedUser });
 	} catch (error) {
-		res.status(400).json({ success: false });
+		res.status(400);
 		throw new Error("Invalid User Data");
 	}
 });
 
 // Desc: Delete User
-// Route: DELETE /api/user/:id
+// Route: DELETE /user/:id
 // Access: Private
 
 const deleteUser = asyncHandler(async (req, res) => {
