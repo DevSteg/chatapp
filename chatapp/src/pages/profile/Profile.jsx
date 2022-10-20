@@ -1,27 +1,14 @@
 import { useContext, useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../../context/context";
-import { getUserRequest } from "../../api/getUserRequest";
 import ProfileForm from "../../components/profileForm/ProfileForm";
-import "./_profile.scss";
 import { updateUserRequest } from "../../api/updateUserRequest";
+import { UserContext } from "../../context/userContext";
+import "./_profile.scss";
 
 const Profile = () => {
-	const [userData, setUserData] = useState({
-		username: "",
-		firstName: "",
-		secondName: "",
-		email: "",
-	});
-
 	const { token } = useContext(AuthContext); // Get token using context hook
-
-	// call getUserRequest (GET) for the user info using token
-	useEffect(() => {
-		getUserRequest(token).then((user) => {
-			setUserData(user); // set userData with req response
-		});
-	}, [token]);
+	const { userData, setUserData } = useContext(UserContext); // Get user from the user context
 
 	// Update the state (userData) with user input
 	const handleOnChange = (e) => {
