@@ -6,6 +6,7 @@ import connectDB from "./config/db.js";
 import dotenv from "dotenv";
 import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRoutes.js";
+import { Server } from "socket.io";
 
 dotenv.config(); // Config dotenv
 connectDB(); // Connect to database
@@ -36,4 +37,19 @@ const server = http.createServer(app);
 // Listen on specified port
 server.listen(port, () => {
 	console.log(`Server listening on port ${port}`);
+});
+
+// Create io socket server and allow for methods
+
+const io = new Server(server, {
+	cors: {
+		origin: "*",
+		methods: ["GET", "POST"],
+	},
+});
+
+// Listen for when client connects via socket.io-client
+
+io.on("connection", (socket) => {
+	console.log("Users Connected: " + socket.id);
 });
